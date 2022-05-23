@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private static void cadastrarProduto()&apos; from &apos;br.com.alura.loja.testes.CadastroDeProduto.main(...)&apos; to &apos;br.com.alura.loja.testes.CadastroDeProduto&apos;&#x0D;&#x0A;- Original project: &apos;loja&apos;&#x0D;&#x0A;- Method name: &apos;cadastrarProduto&apos;&#x0D;&#x0A;- Destination type: &apos;br.com.alura.loja.testes.CadastroDeProduto&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;cadastrarProduto&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.alura.loja.testes{CadastroDeProduto.java" name="cadastrarProduto" replace="false" selection="408 490" stamp="1647567241017" version="1.0" visibility="2"/>
+</session>

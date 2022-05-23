@@ -1,0 +1,19 @@
+package br.com.alura.loja.testes;
+
+import java.math.BigDecimal;
+
+import br.com.alura.loja.modelo.Produto;
+
+public class CadastroDeProduto {
+
+	public static void main(String[] args) {
+		Produto geladeira = new Produto();
+		geladeira.setNome("Consul 3000");
+		geladeira.setDescricao("Show");
+		geladeira.setPreco(new BigDecimal("8000"));
+		
+		
+
+	}
+
+}

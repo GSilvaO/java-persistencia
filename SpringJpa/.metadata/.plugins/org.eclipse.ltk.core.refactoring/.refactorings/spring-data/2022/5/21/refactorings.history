@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;br.com.gsilva.spring.data.model&apos; to &apos;br.com.gsilva.spring.data.models&apos;&#x0D;&#x0A;- Original project: &apos;spring-data&apos;&#x0D;&#x0A;- Original element: &apos;spring-data/src/main/java/br.com.gsilva.spring.data.model&apos;&#x0D;&#x0A;- Renamed element: &apos;spring-data/src/main/java/br.com.gsilva.spring.data.models&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;br.com.gsilva.spring.data.model&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;br.com.gsilva.spring.data.model" name="br.com.gsilva.spring.data.models" qualified="false" references="true" stamp="1652788532049" textual="false" version="1.0"/>
+</session>

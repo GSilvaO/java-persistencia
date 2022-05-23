@@ -1,0 +1,21 @@
+INDEX VERSION 1.131+C:\Users\GabrielSilvaOliveira\Documents\Estudos\Java\SpringFrameworkAlura\jdbcOutro\.metadata\.plugins\org.eclipse.jdt.core
+2094115871.index
+3404766576.index
+1052272061.index
+2280716612.index
+1891749512.index
+1934679069.index
+2296453201.index
+3913217276.index
+4056903450.index
+2955317513.index
+2132691472.index
+620354602.index
+1870397995.index
+1525215497.index
+2542893199.index
+2497892560.index
+745858702.index
+1156005603.index
+3830434062.index
+2887631762.index
