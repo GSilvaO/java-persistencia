@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.gsilva.spring.data.services.CrudCargoService;
 import br.com.gsilva.spring.data.services.CrudFuncionarioService;
 import br.com.gsilva.spring.data.services.CrudUnidadeService;
+import br.com.gsilva.spring.data.services.RelatorioFuncionarioDinamicoService;
 import br.com.gsilva.spring.data.services.RelatorioService;
 
 @SpringBootApplication
@@ -20,14 +21,17 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudUnidadeService unidadeService;
 	private final CrudFuncionarioService funcionarioService;
 	private final RelatorioService relatorioService;
+	private final RelatorioFuncionarioDinamicoService relatorioDinamicoService;
 	
 	// Fazendo a injeção de dependência
 	public SpringDataApplication(CrudCargoService cargoService, CrudUnidadeService unidadeService,
-			CrudFuncionarioService funcionarioService, RelatorioService relatorioService) {
+			CrudFuncionarioService funcionarioService, RelatorioService relatorioService,
+			RelatorioFuncionarioDinamicoService relatorioDinamicoService) {
 		this.cargoService = cargoService;
 		this.unidadeService = unidadeService;
 		this.funcionarioService = funcionarioService;
 		this.relatorioService = relatorioService;
+		this.relatorioDinamicoService = relatorioDinamicoService;
 	}
 
 	public static void main(String[] args) {
@@ -44,6 +48,7 @@ public class SpringDataApplication implements CommandLineRunner {
 			System.out.println("2 - Funcionario");
 			System.out.println("3 - Unidade");
 			System.out.println("4 - Relatorio");
+			System.out.println("5 - Relatorio dinamico");
 			
 			Integer function = scanner.nextInt();
 
@@ -59,6 +64,9 @@ public class SpringDataApplication implements CommandLineRunner {
 					break;
 				case 4:
 					relatorioService.inicial(scanner);
+					break;
+				case 5:
+					relatorioDinamicoService.inicial(scanner);
 					break;
 				default:
 					System.out.println("Finalizando");
