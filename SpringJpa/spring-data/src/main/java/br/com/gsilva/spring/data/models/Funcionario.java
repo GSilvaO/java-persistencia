@@ -1,5 +1,6 @@
 package br.com.gsilva.spring.data.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +9,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "funcionarios")
@@ -22,20 +26,22 @@ public class Funcionario {
 
 	private String nome;
 	private String cpf;
-	private String salario;
-	private String dataContratacao;
+	private Double salario;
+	private LocalDate dataContratacao;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	private Cargo cargo;
 	
 	@ManyToMany
+	@JoinTable(name = "funcionarios_unidades", joinColumns = {
+			@JoinColumn(name = "funcionarios_id") }, 
+	inverseJoinColumns = { @JoinColumn(name = "unidades_id") })
 	private List<Unidade> unidades = new ArrayList<>();
 	
 	public Funcionario() { }
 
-	public Funcionario(Integer id, String nome, String cpf, 
-			String salario, String dataContratacao, Cargo cargo) {
-		this.id = id;
+	public Funcionario(String nome, String cpf, 
+			Double salario, LocalDate dataContratacao, Cargo cargo) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.salario = salario;
@@ -68,19 +74,19 @@ public class Funcionario {
 		this.cpf = cpf;
 	}
 
-	public String getSalario() {
+	public Double getSalario() {
 		return salario;
 	}
 
-	public void setSalario(String salario) {
+	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
 
-	public String getDataContratacao() {
+	public LocalDate getDataContratacao() {
 		return dataContratacao;
 	}
 
-	public void setDataContratacao(String dataContratacao) {
+	public void setDataContratacao(LocalDate dataContratacao) {
 		this.dataContratacao = dataContratacao;
 	}
 
@@ -100,6 +106,10 @@ public class Funcionario {
 		this.unidades = unidades;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Funcionario: " + "id:" + id + "| nome:'" + nome + "| cpf:" + cpf + "| salario:" + salario
+				+ "| dataContratacao:" + dataContratacao + "| cargo:" + cargo.getDescricao();
+	}
 
 }

@@ -19,7 +19,7 @@ public class Cargo {
 	private Integer id;
 	private String descricao;
 	
-	@OneToMany
+	@OneToMany(mappedBy="cargo")
 	private List<Funcionario> funcionarios = new ArrayList<>();
 	
 	
@@ -41,10 +41,6 @@ public class Cargo {
 	
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
-	}
-
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
 	}
 
 	public void adicionarFuncionario(Funcionario funcionario) {

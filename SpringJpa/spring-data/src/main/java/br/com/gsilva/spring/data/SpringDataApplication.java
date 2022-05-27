@@ -9,16 +9,24 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.gsilva.spring.data.models.Cargo;
 import br.com.gsilva.spring.data.repositories.CargoRepository;
 import br.com.gsilva.spring.data.services.CrudCargoService;
+import br.com.gsilva.spring.data.services.CrudFuncionarioService;
+import br.com.gsilva.spring.data.services.CrudUnidadeService;
 
 @SpringBootApplication
 public class SpringDataApplication implements CommandLineRunner {
 	
-	private final CrudCargoService cargoService;
 	private Boolean system = true;
 	
+	private final CrudCargoService cargoService;
+	private final CrudUnidadeService unidadeService;
+	private final CrudFuncionarioService funcionarioService;
+	
 	// Fazendo a injeção de dependência
-	public SpringDataApplication(CrudCargoService cargoService) {
+	public SpringDataApplication(CrudCargoService cargoService, CrudUnidadeService unidadeService,
+			CrudFuncionarioService funcionarioService) {
 		this.cargoService = cargoService;
+		this.unidadeService = unidadeService;
+		this.funcionarioService = funcionarioService;
 	}
 
 	public static void main(String[] args) {
@@ -31,19 +39,27 @@ public class SpringDataApplication implements CommandLineRunner {
 		
 		while(system) {
 			System.out.println("Qual acao voce quer executar?");
-			System.out.println("0 - Sair");
 			System.out.println("1 - Cargo");
+			System.out.println("2 - Funcionario");
+			System.out.println("3 - Unidade");
 			
-			int action = scanner.nextInt();
-			if(action == 1 ) {
-				cargoService.inicial(scanner);
-			}
-			else if (action == 0) {
-				system = false;
+			Integer function = scanner.nextInt();
+
+			switch (function) {
+				case 1:
+					cargoService.inicial(scanner);
+					break;
+				case 2:
+					funcionarioService.inicial(scanner);
+					break;
+				case 3:
+					unidadeService.inicial(scanner);
+					break;
+				default:
+					System.out.println("Finalizando");
+					system = false;
+					break;
 			}
 		}
-		
-		
 	}
-
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Unidade {
 	private String descricao;
 	private String endereco;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "unidades", fetch = FetchType.EAGER)
 	private List<Funcionario> funcionarios = new ArrayList<>();
 
 	public Integer getId() {
@@ -53,7 +54,17 @@ public class Unidade {
 	}
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
+		this.getFuncionarios().addAll(funcionarios);
+	}
+	
+	public void setFuncionario(Funcionario funcionario) {
+		this.getFuncionarios().add(funcionario);
+	}
+
+	@Override
+	public String toString() {
+		return "Unidade [id=" + id + ", descricao=" + descricao + ", endereco=" + endereco + ", funcionarios="
+				+ funcionarios + "]";
 	}
 	
 	

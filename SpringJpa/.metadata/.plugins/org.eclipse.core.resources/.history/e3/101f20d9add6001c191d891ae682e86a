@@ -1,5 +1,0 @@
-package br.com.gsilva.spring.data.services;
-
-public class CrudCargoService {
-
-}
