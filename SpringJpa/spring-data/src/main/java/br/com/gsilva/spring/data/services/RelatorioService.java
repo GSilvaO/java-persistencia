@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.springframework.stereotype.Service;
 
 import br.com.gsilva.spring.data.models.Funcionario;
+import br.com.gsilva.spring.data.models.FuncionarioProjecao;
 import br.com.gsilva.spring.data.repositories.FuncionarioRepository;
 
 @Service
@@ -29,6 +30,7 @@ public class RelatorioService {
 			System.out.println("1 - Buscar funcionario por nome");
 			System.out.println("2 - Buscar funcionario por nome, salario e data contratacao");
 			System.out.println("3 - Buscar funcionario por data contratacao");
+			System.out.println("4 - Buscar todos os salarios dos funcionarios");
 			
 			int action = scanner.nextInt();
 			
@@ -41,6 +43,9 @@ public class RelatorioService {
 				break;
 			case 3:
 				buscarFuncionarioDataContratacao(scanner);
+				break;
+			case 4:
+				pesquisaFuncionarioSalario();
 				break;
 			default:
 				system = false;
@@ -81,5 +86,11 @@ public class RelatorioService {
 		
 		List<Funcionario> list = funcionarioRepository.findDataContratacaoMaior(localDate);
 		list.forEach(System.out::println);
+	}
+	
+	private void pesquisaFuncionarioSalario() {
+		List<FuncionarioProjecao> list = funcionarioRepository.findFuncionarioSalario();
+		list.forEach(f -> System.out.println("Funcionario: id: " + f.getId() + 
+			";; nome: " + f.getNome() + " ;; salario: " + f.getSalario()));
 	}
 }

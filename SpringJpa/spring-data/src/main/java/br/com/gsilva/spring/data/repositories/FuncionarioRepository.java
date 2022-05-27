@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import br.com.gsilva.spring.data.models.Funcionario;
+import br.com.gsilva.spring.data.models.FuncionarioProjecao;
 
 public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Integer> {
 	
@@ -23,4 +24,8 @@ public interface FuncionarioRepository extends PagingAndSortingRepository<Funcio
 	@Query(value = "SELECT * FROM funcionarios f WHERE f.data_contratacao >= :dataContratacao",
 			nativeQuery = true)
 	List<Funcionario> findDataContratacaoMaior(LocalDate dataContratacao);
+	
+	@Query(value = "SELECT f.id, f.nome, f.salario FROM funcionarios f",
+			nativeQuery = true)
+	List<FuncionarioProjecao> findFuncionarioSalario();
 }
