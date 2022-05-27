@@ -12,6 +12,9 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Integ
 	
 	List<Funcionario> findByNome(String nome);
 	
+	//Faz um JOIN com a tabela de cargo atraves do atributo cargo.descricao
+	List<Funcionario> findByCargoDescricao(String descricao);
+	
 	@Query("SELECT f FROM Funcionario f WHERE f.nome = :nome "
 			+ "AND f.salario >= :salario AND f.dataContratacao = dataContratacao")
 	List<Funcionario> findNomeSalarioMaiorDataContratacao(String nome, Double salario, LocalDate dataContratacao);
