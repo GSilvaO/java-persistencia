@@ -13,7 +13,7 @@ import br.com.gsilva.spring.data.repositories.FuncionarioRepository;
 @Service
 public class RelatorioService {
 	
-	private Boolean system = false;
+	private Boolean system = true;
 	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	private final FuncionarioRepository funcionarioRepository;
@@ -28,6 +28,7 @@ public class RelatorioService {
 			System.out.println("0 - Sair");
 			System.out.println("1 - Buscar funcionario por nome");
 			System.out.println("2 - Buscar funcionario por nome, salario e data contratacao");
+			System.out.println("3 - Buscar funcionario por data contratacao");
 			
 			int action = scanner.nextInt();
 			
@@ -37,6 +38,9 @@ public class RelatorioService {
 				break;
 			case 2:
 				buscarFuncionarioNomeSalarioMaiorData(scanner);
+				break;
+			case 3:
+				buscarFuncionarioDataContratacao(scanner);
 				break;
 			default:
 				system = false;
@@ -66,6 +70,16 @@ public class RelatorioService {
 		List<Funcionario> list = funcionarioRepository
 				.findNomeSalarioMaiorDataContratacao(nome, salario, localDate);
 		
+		list.forEach(System.out::println);
+	}
+	
+	private void buscarFuncionarioDataContratacao(Scanner scanner) {
+		System.out.println("Por qual data de contratacao deseja pesquisar?");
+		String data = scanner.next();
+		
+		LocalDate localDate = LocalDate.parse(data, formatter);
+		
+		List<Funcionario> list = funcionarioRepository.findDataContratacaoMaior(localDate);
 		list.forEach(System.out::println);
 	}
 }

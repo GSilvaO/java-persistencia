@@ -6,8 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.gsilva.spring.data.models.Cargo;
-import br.com.gsilva.spring.data.repositories.CargoRepository;
 import br.com.gsilva.spring.data.services.CrudCargoService;
 import br.com.gsilva.spring.data.services.CrudFuncionarioService;
 import br.com.gsilva.spring.data.services.CrudUnidadeService;
